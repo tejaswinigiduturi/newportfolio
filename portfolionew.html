@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tejaswini | Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Internal CSS -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b2221;
+            color: #e0f2f1;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(11, 34, 33, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            color: #00ffb3 !important;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: #e0f2f1 !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00ffb3 !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(11, 34, 33, 0.7), rgba(11, 34, 33, 0.7)),
+                url('https://images.unsplash.com/photo-1531297484001-80022131f5a1') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #00ffb3;
+            text-shadow: 0 0 10px #00ffb3;
+            animation: glow 2.5s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #b2dfdb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #00ffb3;
+            }
+
+            to {
+                text-shadow: 0 0 25px #00ffb3, 0 0 40px #00ffb3;
+            }
+        }
+
+        /* Section Titles */
+        h2 {
+            font-weight: 700;
+            color: #00ffb3;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.2s ease;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #00ffb3;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #112d2c;
+            padding: 80px 0;
+
+        }
+
+        #about img {
+            border: 4px solid #00ffb3;
+            border-radius: 50%;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        #about img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #00ffb3;
+        }
+
+        /* Skills */
+        #skills {
+            background: #0b2221;
+            padding: 80px 0;
+        }
+
+        #skills .card {
+            background: #112d2c;
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            color: #e0f2f1;
+        }
+
+        #skills .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px #00ffb3;
+        }
+
+        /* Projects */
+        #projects {
+            background-color: #112d2c;
+            padding: 80px 0;
+            color: white
+        }
+
+        #projects .card {
+            background: #0f2928;
+            border: none;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            color: white
+        }
+
+        #projects img {
+            border-radius: 12px 12px 0 0;
+            height: 200px;
+            object-fit: cover;
+            color: white
+        }
+
+        #projects .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px #00ffb3;
+            color: white
+        }
+
+        /* Contact */
+        #contact {
+            padding: 80px 0;
+            background: #0b2221;
+        }
+
+        #contact a {
+            color: #00ffb3;
+            border: 2px solid #00ffb3;
+            border-radius: 25px;
+            padding: 10px 25px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        #contact a:hover {
+            background: #00ffb3;
+            color: #0b2221;
+            box-shadow: 0 0 20px #00ffb3;
+        }
+
+        /* Footer */
+        footer {
+            background: #081615;
+            color: #b2dfdb;
+            padding: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+            border-top: 1px solid #00ffb3;
+        }
+
+        /* Animations */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        [data-animate].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tejaswini </a>
+            <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon bg-light rounded"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hello, I'm Tejaswini Giduthuri</h1>
+            <p>UI/UX Developer </p>
+            <a href="#contact" class="btn btn-outline-light mt-3 px-4 py-2">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container text-center" data-animate>
+            <h2>About Me</h2>
+            <div class="row align-items-center mt-5 justify-content-center">
+
+                <div class="col-md-7">
+                    <p>
+                        I’m a passionate <b>UI/UX Developer</b> with a focus on creating visually appealing,
+                        user-centered, and responsive web designs.
+                        I specialize in using <b>HTML, CSS, JavaScript, Bootstrap, and Figma</b> to build intuitive
+                        digital experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container text-center" data-animate>
+            <h2>My Skills</h2>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>HTML</h5>
+                        <p>Clean, semantic, and SEO-friendly markup.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>CSS & Bootstrap</h5>
+                        <p>Responsive and modern layouts with style.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card p-3">
+                        <h5>JavaScript</h5>
+                        <p>Adding motion and interactivity to designs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container text-center" data-animate>
+            <h2>Projects</h2>
+            <div class="row mt-4 justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="D:\tejaswinigiduturi\vizag.jpg">
+                        <a href="https://tejaswinigiduturi.github.io/touristplaces/" class="btn btn-primary">View</a>
+                        <div class="card-body">
+                            <h5>Tourist Places</h5>
+                            <p>The objective of this project is to showcase the most popular tourist attractions in
+                                Visakhapatnam (Vizag) and provide useful information for travelers who wish to explore
+                                the city’s natural beauty, beaches, hills, and cultural landmarks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="D:\tejaswinigiduturi\task tracker.jpg">
+                        <a href="https://tejaswinigiduturi.github.io/Todolist/" class="btn btn-primary">View</a>
+
+                        <div class="card-body">
+                            <h5>Task Tracker</h5>
+                            <p>A Task Tracker is a simple application that helps users organize and manage their daily
+                                tasks efficiently. It allows users to add, edit, and delete tasks to keep track of their
+                                work and improve productivity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="d-flex justify-content-center flex-wrap">
+            <a href="tel:6302145645">6302145645</a>
+            <a href="mailto:tejaswinigiduturi@gmail.com">tejaswinigiduturi@gmail.com</a>
+            <a href="https://www.linkedin.com/in/giduthuri-tejaswini-329201226/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/tejaswinigiduturi" target="_blank">GitHub</a>
+        </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Tejaswini </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        const animateElements = document.querySelectorAll("[data-animate]");
+        const onScroll = () => {
+            animateElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add("visible");
+                }
+            });
+        };
+        window.addEventListener("scroll", onScroll);
+        onScroll();
+    </script>
+</body>
+
+</html>
